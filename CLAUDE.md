@@ -68,16 +68,18 @@ Proceed with scaffolding and execution per the constitution.
 |------|-------|-----------|----------|
 | **Human Lead** | [CUSTOMIZE] | Final decisions, greenlight, merge | Reviews, approves, resolves |
 | **Strategist** | Jordan (ChatGPT) | Business strategy, feature framing | Does NOT implement |
-| **Spec Author** | CP (Claude Project) | Constitutional docs, specs | Does NOT create PRs |
+| **Architect** | project-architect (local) | Constitutional docs, planning | Does NOT implement code |
 | **Quality Gate** | CC (Claude Code) | Verification, PRs, build-plan | Does NOT make arch decisions |
 | **Implementation** | Cursor | Code per task briefs | Does NOT create PRs |
+| **Recon Agent** | Codex Cloud (optional) | Remote recon, handoff packets | Does NOT modify code |
 
 ### Lane Rules
 
-- **Strategist and Spec Author** communicate bidirectionally (through Human Lead)
+- **Strategist and Architect** communicate bidirectionally (through Human Lead)
 - **Specs flow one-way** to Quality Gate (no modifications)
 - **Quality Gate and Implementation** cycle tightly
-- **Implementation Engine never communicates** with Strategist or Spec Author
+- **Implementation Engine never communicates** with Strategist or Architect
+- **Codex Cloud** produces recon reports and handoff packets only (never modifies code)
 
 ---
 
