@@ -54,9 +54,22 @@ One-paragraph description of the issue or idea.
 
 ## Governance
 
-- **Authored by:** CC (during execution)
+- **Authored by:** CC (during execution), or FAI (if adopted)
 - **Reviewed by:** Human Lead (during planning)
 - **Graduated:** Items move to GitHub Issues when prioritized
+
+---
+
+## FAI Integration (Optional)
+
+If this project uses FORGE AI Interface (FAI), feedback captured through FAI conversations is automatically routed here:
+
+- **Bugs** → `known-issues.md`
+- **Feature requests** → `future-work.md`
+
+FAI entries include the `**Source:** FAI Conversation` tag for traceability.
+
+See `docs/constitution/FAI.md` for FAI configuration.
 
 ---
 

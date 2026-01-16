@@ -233,4 +233,41 @@ One-paragraph description of the issue or idea.
 
 ---
 
+## FORGE AI Interface (FAI) — Optional
+
+> **Skip this section** if your project does not use FORGE AI Interface.
+
+FAI is an optional FORGE extension that provides a first-class AI interface layer. **FAI is an interface layer, not an autonomous agent.**
+
+### FAI Capabilities
+
+If enabled, FAI provides:
+- **Knowledge-Based Q&A** — Answer questions about how the app works
+- **Action Execution** — Perform user actions via API with RBAC mirroring
+- **Feedback Capture** — Convert conversations to structured parking-lot entries
+- **Multimodal Intake** — Accept screenshots for visual context
+
+### FAI Boundaries (Non-Negotiable)
+
+| FAI Does NOT | Why |
+|--------------|-----|
+| Modify code | Code authority remains with CC/Cursor |
+| Create PRs | PRs remain in Quality Gate lane |
+| Auto-merge | Human Lead approval required |
+| Exceed user permissions | RBAC mirroring enforced |
+
+### FAI Configuration
+
+If adopting FAI:
+1. Complete `docs/constitution/FAI.md`
+2. Create GitHub App with minimal permissions
+3. Configure feedback routing to parking-lot
+4. Review `ai_prompts/templates/fai-feedback-brief.template.md`
+
+### FAI Status: [DISABLED / ENABLED]
+
+Set to ENABLED in `docs/constitution/FAI.md` when adopting.
+
+---
+
 *This project follows The FORGE Method(TM) — theforgemethod.org*
