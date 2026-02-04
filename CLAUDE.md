@@ -90,7 +90,7 @@ Proceed with scaffolding and execution per the constitution.
 |------|-------|-----------|----------|
 | **Human Lead** | [CUSTOMIZE] | Final decisions, greenlight, merge | Reviews, approves, resolves |
 | **Strategist** | Product Strategist | Frame phase, product intent | Does NOT implement or plan architecture |
-| **Architect** | project-architect (local) | Constitutional docs, planning | Does NOT implement code |
+| **Architect** | Project Architect v2 | Architecture packets, planning | Does NOT implement code |
 | **Quality Gate** | CC (Claude Code) | Verification, PRs, build-plan | Does NOT make arch decisions |
 | **Implementation** | Cursor | Code per task briefs | Does NOT create PRs |
 | **Recon Agent** | Codex Cloud (optional) | Remote recon, handoff packets | Does NOT modify code |
@@ -136,14 +136,26 @@ inbox/
    - 8 required artifacts (intent, actors, use-cases, etc.)
    - Professional PM-level quality
 
-4. **Human Lead routes** to next phase (Project Architect)
+4. **Human Lead routes** to Project Architect v2
+
+5. **Project Architect v2 processes** the Product Intent Packet
+   - Asks clarifying questions (up to 2 rounds)
+   - Decomposes into architecture components
+   - Produces Architecture & Execution Packet
+
+6. **Architecture Packet appears** in `inbox/20_architecture-plan/<slug>/`
+   - 7 artifacts (architecture, execution plan, PR plan, etc.)
+   - Complete planning ready for execution
+
+7. **Human Lead routes** to Ops Conductor / Execute agents
 
 ### Relationship to Constitution
 
 - **Product Intent Packets** are Frame-phase discovery artifacts
+- **Architecture Packets** are Orchestrate-phase planning artifacts
 - **PRODUCT.md** (in `docs/constitution/`) is the refined constitutional doc
-- Packets **precede and inform** PRODUCT.md but don't replace it
-- Packets are preserved as historical discovery record
+- Packets **precede and inform** constitutional docs but don't replace them
+- Both packet types are preserved as historical records
 
 See `inbox/README.md` for detailed submission guidelines.
 
@@ -262,9 +274,10 @@ If the agent cannot verify the current date, it must halt and request confirmati
 | Constitution | `docs/constitution/` |
 | Build Plan | `docs/build-plan.md` |
 | Ops State | `docs/ops/state.md` |
-| Inbox (Frame phase) | `inbox/` |
+| Inbox (Frame & Orchestrate) | `inbox/` |
 | Discovery Input | `inbox/00_drop/` |
 | Product Intent Packets | `inbox/10_product-intent/` |
+| Architecture Packets | `inbox/20_architecture-plan/` |
 | Current Brief | `ai_prompts/active/` |
 | Completed Briefs | `ai_prompts/completed/` |
 | Templates | `ai_prompts/templates/` |

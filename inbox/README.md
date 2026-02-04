@@ -1,6 +1,6 @@
-# Inbox — Frame Phase Workflow
+# Inbox — Frame & Orchestrate Workflow
 
-This directory supports the inbox-driven Frame (F) phase workflow.
+This directory supports the inbox-driven Frame (F) and Orchestrate (O) phase workflows.
 
 ---
 
@@ -42,9 +42,36 @@ inbox/10_product-intent/my-feature/
 └── source-index.md
 ```
 
-### 4. Human Routes
+### 4. Human Routes to Orchestrate
 
-Human Lead reviews packet and routes to next phase (Project Architect).
+Human Lead reviews packet and routes to Project Architect v2.
+
+### 5. Project Architect Processes
+
+The Project Architect v2 agent:
+1. Reads the Product Intent Packet
+2. Asks clarifying questions (up to 2 rounds)
+3. Decomposes into architecture components
+4. Produces Architecture & Execution Packet
+
+### 6. Architecture Packet Delivered
+
+Architecture Packet appears in `20_architecture-plan/`:
+
+```
+inbox/20_architecture-plan/my-feature/
+├── README.md                 ← Overview + coherence checklist
+├── architecture-overview.md  ← System decomposition
+├── execution-plan.md         ← Phases and milestones
+├── pr-plan.md                ← PR waypoints
+├── risks.md                  ← Known risks
+├── assumptions.md            ← Planning assumptions
+└── open-questions.md         ← Items for Human Lead
+```
+
+### 7. Human Routes to Execute
+
+Human Lead reviews architecture packet and routes to execution agents.
 
 ---
 
@@ -55,7 +82,9 @@ inbox/
 ├── README.md              ← You are here
 ├── 00_drop/               ← Discovery input (you write here)
 │   └── .template/         ← Example structure
-└── 10_product-intent/     ← Product Intent Packets (agent writes here)
+├── 10_product-intent/     ← Product Intent Packets (Frame output)
+│   └── .template/         ← Example packet
+└── 20_architecture-plan/  ← Architecture Packets (Orchestrate output)
     └── .template/         ← Example packet
 ```
 
@@ -84,8 +113,10 @@ Product Intent Packets are professional PM-level artifacts:
 | Artifact | Purpose | Location |
 |----------|---------|----------|
 | Product Intent Packet | Frame-phase discovery output | `inbox/10_product-intent/` |
+| Architecture Packet | Orchestrate-phase planning output | `inbox/20_architecture-plan/` |
 | PRODUCT.md | Refined constitutional doc | `docs/constitution/` |
 | Task briefs | Execute-phase work packets | `ai_prompts/active/` |
 
-Product Intent Packets **precede and inform** PRODUCT.md.
-They are preserved as historical discovery record.
+**Flow:** Product Intent → Architecture Packet → Constitutional docs → Task briefs
+
+Both packets are preserved as historical discovery and planning records.
