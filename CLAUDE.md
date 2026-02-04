@@ -84,24 +84,25 @@ Proceed with scaffolding and execution per the constitution.
 
 ---
 
-## Agent Lanes
+## Agent Lanes (F/O/R/G/E)
 
-| Role | Agent | Authority | Boundary |
-|------|-------|-----------|----------|
-| **Human Lead** | [CUSTOMIZE] | Final decisions, greenlight, merge | Reviews, approves, resolves |
-| **Strategist** | Product Strategist | Frame phase, product intent | Does NOT implement or plan architecture |
-| **Architect** | Project Architect | Architecture packets, planning | Does NOT implement code |
-| **Quality Gate** | CC (Claude Code) | Verification, PRs, build-plan | Does NOT make arch decisions |
-| **Implementation** | Cursor | Code per task briefs | Does NOT create PRs |
-| **Recon Agent** | Codex Cloud (optional) | Remote recon, handoff packets | Does NOT modify code |
+| Role | Agent | Phase | Boundary |
+|------|-------|-------|----------|
+| **Human Lead** | [CUSTOMIZE] | All | Final decisions, greenlight, merge |
+| **Strategist** | Product Strategist | Frame (F) | Does NOT implement or plan architecture |
+| **Architect** | Project Architect | Orchestrate/Refine (O/R) | Does NOT implement code |
+| **Governor** | Ops Agent | Govern (G) | Does NOT design or code |
+| **Execution** | E agents/humans | Execute (E) | Implements per task briefs |
+
+**Note:** CC (Claude Code) is infrastructure/runtime, not a FORGE role. FORGE roles are **F/O/R/G/E**.
 
 ### Lane Rules
 
 - **Strategist and Architect** communicate bidirectionally (through Human Lead)
-- **Specs flow one-way** to Quality Gate (no modifications)
-- **Quality Gate and Implementation** cycle tightly
-- **Implementation Engine never communicates** with Strategist or Architect
-- **Codex Cloud** produces recon reports and handoff packets only (never modifies code)
+- **Specs flow to Ops Agent** for coordination (no modifications)
+- **Ops Agent coordinates Execution** via task briefs
+- **Execution never communicates** directly with Strategist or Architect (through Ops Agent)
+- **Human-in-the-loop** at all G-phase checkpoints
 
 ---
 
@@ -147,7 +148,17 @@ inbox/
    - 7 artifacts (architecture, execution plan, PR plan, etc.)
    - Complete planning ready for execution
 
-7. **Human Lead routes** to Ops Conductor / Execute agents
+7. **Human Lead routes** to Ops Agent (G)
+
+8. **Ops Agent processes** the Architecture Packet
+   - Decomposes into phased Build Plan
+   - Requests Build Plan approval
+   - Coordinates Execution (E) per phase
+
+9. **Execution output appears** in `inbox/30_ops/`
+   - Build Plan
+   - Execution State (done/blocked/next)
+   - Approval records
 
 ### Relationship to Constitution
 
@@ -158,6 +169,47 @@ inbox/
 - Both packet types are preserved as historical records
 
 See `inbox/README.md` for detailed submission guidelines.
+
+---
+
+## G-Phase: Ops Agent Coordination
+
+After the **Project Architect** produces an **Architecture Packet**, the **Ops Agent (G)** takes over execution coordination.
+
+### What Ops Agent Does
+
+- Decomposes Architecture Packet into phased **Build Plan**
+- Coordinates **Execution (E)** agents or humans
+- Validates outputs against specs (Sacred Four)
+- Enforces human-in-the-loop approval gates
+- Tracks state across sessions
+
+### What Ops Agent Does NOT Do
+
+- Design features (that's F-phase)
+- Architect solutions (that's O-phase)
+- Write business logic (that's E-phase)
+
+### Human Checkpoints
+
+You will approve:
+
+| Checkpoint | When |
+|------------|------|
+| Build Plan Approval | After Architecture Packet decomposition |
+| Phase Completion | Each PR merged or phase completed |
+| PR Merge Approval | PR verified and ready |
+| Migration/Deployment | Before infrastructure changes |
+
+### Where to Look
+
+| Artifact | Location |
+|----------|----------|
+| Build Plan | `inbox/30_ops/build-plan.md` |
+| Execution State | `inbox/30_ops/execution-state.md` |
+| Pending Approvals | `inbox/30_ops/approvals/` |
+
+**See `inbox/30_ops/README.md` for full details.**
 
 ---
 
@@ -270,12 +322,15 @@ If the agent cannot verify the current date, it must halt and request confirmati
 | What | Where |
 |------|-------|
 | Constitution | `docs/constitution/` |
-| Build Plan | `docs/build-plan.md` |
-| Ops State | `docs/ops/state.md` |
-| Inbox (Frame & Orchestrate) | `inbox/` |
+| Inbox (F/O/R/G) | `inbox/` |
 | Discovery Input | `inbox/00_drop/` |
 | Product Intent Packets | `inbox/10_product-intent/` |
 | Architecture Packets | `inbox/20_architecture-plan/` |
+| **Ops Agent (G-phase)** | `inbox/30_ops/` |
+| Build Plan | `inbox/30_ops/build-plan.md` |
+| Execution State | `inbox/30_ops/execution-state.md` |
+| Approval Records | `inbox/30_ops/approvals/` |
+| Task Briefs | `inbox/30_ops/handoffs/` |
 | ADRs | `docs/adr/` |
 | Parking Lot | `docs/parking-lot/` |
 | Discovery (legacy) | `docs/discovery/` |
