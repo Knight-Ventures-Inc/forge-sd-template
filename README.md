@@ -98,10 +98,10 @@ CC can now scaffold and begin The FORGE Cycle.
 │   ├── adr/                  # Architecture Decision Records
 │   ├── ops/                  # Operational state
 │   └── build-plan.md         # Execution state
-├── ai_prompts/
-│   ├── active/               # Current task brief
-│   ├── completed/            # Archived briefs
-│   └── templates/            # Reusable templates
+├── inbox/                    # Inbox-driven workflow
+│   ├── 00_drop/              # Discovery input (you write here)
+│   ├── 10_product-intent/    # Product Strategist outputs
+│   └── 20_architecture-plan/ # Project Architect outputs
 ├── src/                      # Application source
 └── tests/                    # Test files
 ```

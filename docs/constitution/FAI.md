@@ -111,8 +111,8 @@ feedback_routing:
     format: parking-lot-entry
 
   urgent:
-    destination: ai_prompts/active/
-    format: fai-feedback-brief
+    destination: docs/parking-lot/urgent-items.md
+    format: parking-lot-entry
     notify: true
 ```
 

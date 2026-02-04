@@ -17,7 +17,6 @@
 |-------|-------|
 | Current PR | PR-[XX] |
 | Branch | `feat/pr-[xx]-[name]` |
-| Active Brief | `ai_prompts/active/[brief].md` |
 | Last Verified Commit | `[short-sha]` |
 
 ---

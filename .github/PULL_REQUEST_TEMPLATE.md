@@ -2,9 +2,9 @@
 
 [One sentence: what this PR accomplishes]
 
-## Task Brief
+## Context
 
-[Link to ai_prompts/active/pr-XX-name.md or ai_prompts/completed/pr-XX-name/]
+[Link to relevant inbox packet or Architecture Plan if applicable]
 
 ## Changes
 

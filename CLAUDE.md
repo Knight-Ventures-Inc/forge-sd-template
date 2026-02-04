@@ -200,7 +200,6 @@ Switching planes requires logout/login.
 ### If In Execute
 - **Current PR:** [PR-XX or "None"]
 - **Build Plan:** `docs/build-plan.md`
-- **Active Brief:** `ai_prompts/active/`
 - **Ops State:** `docs/ops/state.md`
 
 ---
@@ -249,8 +248,7 @@ If the agent cannot verify the current date, it must halt and request confirmati
 2. **Verification runs before every PR** — Sacred Four, all must pass
 3. **Constitutional docs are read-only** — Suggest changes, don't modify
 4. **5-line rule** — < 5 lines: CC fixes; >= 5 lines: back to Cursor
-5. **File-based handoffs** — Everything through `ai_prompts/`
-6. **Archive before starting** — Each PR archives the previous brief
+5. **Inbox-driven workflow** — Discovery via `inbox/00_drop/`, outputs via `inbox/10_product-intent/` and `inbox/20_architecture-plan/`
 
 ---
 
@@ -261,7 +259,7 @@ If the agent cannot verify the current date, it must halt and request confirmati
 2. Check docs/constitution/ — if empty, STOP and request inputs
 3. Check docs/build-plan.md for current PR
 4. Run: git log --oneline -5
-5. Check ai_prompts/active/ for current brief
+5. Check inbox/ for pending work
 6. Ready to proceed (~90 seconds)
 ```
 
@@ -278,9 +276,6 @@ If the agent cannot verify the current date, it must halt and request confirmati
 | Discovery Input | `inbox/00_drop/` |
 | Product Intent Packets | `inbox/10_product-intent/` |
 | Architecture Packets | `inbox/20_architecture-plan/` |
-| Current Brief | `ai_prompts/active/` |
-| Completed Briefs | `ai_prompts/completed/` |
-| Templates | `ai_prompts/templates/` |
 | ADRs | `docs/adr/` |
 | Parking Lot | `docs/parking-lot/` |
 | Discovery (legacy) | `docs/discovery/` |
@@ -448,7 +443,6 @@ If adopting FAI:
 1. Complete `docs/constitution/FAI.md`
 2. Create GitHub App with minimal permissions
 3. Configure feedback routing to parking-lot
-4. Review `ai_prompts/templates/fai-feedback-brief.template.md`
 
 ### FAI Status: [DISABLED / ENABLED]
 

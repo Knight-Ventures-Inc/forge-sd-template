@@ -115,8 +115,7 @@ Product Intent Packets are professional PM-level artifacts:
 | Product Intent Packet | Frame-phase discovery output | `inbox/10_product-intent/` |
 | Architecture Packet | Orchestrate-phase planning output | `inbox/20_architecture-plan/` |
 | PRODUCT.md | Refined constitutional doc | `docs/constitution/` |
-| Task briefs | Execute-phase work packets | `ai_prompts/active/` |
 
-**Flow:** Product Intent → Architecture Packet → Constitutional docs → Task briefs
+**Flow:** Product Intent → Architecture Packet → Constitutional docs → Execute
 
 Both packets are preserved as historical discovery and planning records.

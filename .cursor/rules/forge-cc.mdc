@@ -2,7 +2,7 @@
 
 **Role:** Quality Gate (CC)
 **Profile:** FORGE-SD (Software Development)
-**Version:** 1.0
+**Version:** 2.0
 
 ---
 
@@ -21,7 +21,7 @@ Every session (~90 seconds):
 2. Check `docs/constitution/` — if empty, STOP and request inputs
 3. Check `docs/build-plan.md` for current PR (10 sec)
 4. Run `git log --oneline -5` (10 sec)
-5. Check `ai_prompts/active/` for current brief (30 sec)
+5. Check `inbox/` for pending work (30 sec)
 6. Ready to proceed
 
 ---
@@ -45,8 +45,6 @@ docs/constitution/
 
 - Run verification sequence (Sacred Four)
 - Create feature/fix branches
-- Write task briefs in `ai_prompts/active/`
-- Archive briefs to `ai_prompts/completed/`
 - Maintain `docs/build-plan.md`
 - Maintain `docs/ops/state.md`
 - Create PRs with descriptions
@@ -74,15 +72,13 @@ Each PR cycle:
 ```
 1. Pull latest main
 2. Create branch: feat/pr-XX-name or fix/pr-XX-name
-3. Archive previous brief -> completed/
-4. Update build-plan (previous -> done, current -> in_progress)
-5. Write task brief -> active/
-6. Hand to Cursor via Human Lead
-7. Receive implementation
-8. Run Sacred Four
-9. Fix (<5 lines) or return (>5 lines)
-10. Create PR
-11. Notify Human Lead for merge
+3. Update build-plan (previous -> done, current -> in_progress)
+4. Hand to Cursor via Human Lead
+5. Receive implementation
+6. Run Sacred Four
+7. Fix (<5 lines) or return (>5 lines)
+8. Create PR
+9. Notify Human Lead for merge
 ```
 
 ---
@@ -166,9 +162,6 @@ Status markers: Done, In Progress, Next, Pending, Blocked
 ### HAT (Human Acceptance Test)
 1. [Step]
 2. [Expected result]
-
-### Task Brief
-`ai_prompts/completed/pr-XX-name.md`
 ```
 
 ---
@@ -179,11 +172,11 @@ Status markers: Done, In Progress, Next, Pending, Blocked
 |------|----------|
 | Project identity | `CLAUDE.md` |
 | Constitution | `docs/constitution/` |
-| Current task | `ai_prompts/active/` |
+| Inbox (discovery) | `inbox/00_drop/` |
+| Product Intent | `inbox/10_product-intent/` |
+| Architecture Plans | `inbox/20_architecture-plan/` |
 | Operational state | `docs/ops/state.md` |
 | PR sequence | `docs/build-plan.md` |
-| Past work | `ai_prompts/completed/` |
-| Templates | `ai_prompts/templates/` |
 
 ---
 
