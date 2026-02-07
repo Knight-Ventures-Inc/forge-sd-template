@@ -62,6 +62,17 @@ When populated, this document should include:
 
 ---
 
+### 7. Autonomy Policy (v1.3)
+
+- Autonomy tier (see `FORGE-AUTONOMY.yml`)
+- Human gates (actions requiring human approval at all tiers)
+- Blast radius thresholds
+- Router event logging configuration
+
+See `FORGE-AUTONOMY.yml` in project root and `FORGE-Method/templates/forge-template-autonomy-policy.md` for schema reference.
+
+---
+
 ## Until Populated
 
 **CC must not scaffold or begin execution.**
